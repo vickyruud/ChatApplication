@@ -17,7 +17,7 @@ const ChatFeed = (props) => {
     //create the array of messages to render
     return keys.map((key, index) => {
       const message = messages[key]; 
-      const lastMessageKey = index === 0 ? null : keys[index - 1]; // check if message is the last one
+      const lastMessageKey = index === 0 ? null : keys[index - 1]; // obtain last message key
       const isMyMessage = userName === message.sender.username; // check if it is the message of the user logged in
 
       return (
