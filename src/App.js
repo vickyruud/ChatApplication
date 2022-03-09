@@ -3,9 +3,13 @@ import './App.css';
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 import RegistrationForm from './components/RegistrationForm';
+import { useState } from 'react';
 
 
 const App = () => {
+  
+  const [form, setForm] = useState('login')
+
 
   const handleLogout = () => {
     localStorage.removeItem('username');
@@ -15,17 +19,17 @@ const App = () => {
   }
 
   const handleForm = (input) => {
-    if (input === 'login') {
-      return <LoginForm />
+    if (form === 'login') {
+      return <LoginForm setForm={setForm} />
     } else {
-      return <RegistrationForm />
+      return <RegistrationForm setForm={setForm} />
     }
   }
 
   
-
+  
   if (!localStorage.getItem('username')) {
-    return handleForm('login');
+    return handleForm();
   } 
   
   return (

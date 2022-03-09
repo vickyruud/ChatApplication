@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const changeForm = (input) => {
+    props.setForm(input);
+  } 
 
 
   const handleSubmit = async (e) => {
@@ -52,6 +56,8 @@ const LoginForm = () => {
           <div align="center">
             <button type='submit' className='button'>
               <span>Start Chatting</span>
+              <p>Not Registered yet? <a onClick={()=> changeForm('register')}>Click Here to Register</a></p>
+
             </button>
           </div>
           <h2 className='error'> {error}</h2>
