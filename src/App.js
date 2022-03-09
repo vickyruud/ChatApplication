@@ -2,6 +2,7 @@ import { ChatEngine } from 'react-chat-engine';
 import './App.css';
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
+import RegistrationForm from './components/RegistrationForm';
 
 
 const App = () => {
@@ -13,9 +14,19 @@ const App = () => {
 
   }
 
+  const handleForm = (input) => {
+    if (input === 'login') {
+      return <LoginForm />
+    } else {
+      return <RegistrationForm />
+    }
+  }
+
   
 
-  if (!localStorage.getItem('username')) return <LoginForm />
+  if (!localStorage.getItem('username')) {
+    return handleForm('login');
+  } 
   
   return (
 
