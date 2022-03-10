@@ -29,7 +29,6 @@ const LoginForm = (props) => {
       await axios.get('https://api.chatengine.io/chats', { headers: authObject });
       
       //works out => logged in
-
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
 
@@ -56,9 +55,8 @@ const LoginForm = (props) => {
           <div align="center">
             <button type='submit' className='button'>
               <span>Start Chatting</span>
-              <p>Not Registered yet? <a onClick={()=> changeForm('register')}>Click Here to Register</a></p>
-
             </button>
+              <p>Not Registered yet? <a onClick={()=> changeForm('register')}>Click Here to Register</a></p>
           </div>
           <h2 className='error'> {error}</h2>
 
